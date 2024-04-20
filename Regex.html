@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Concepts</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="Lists.html">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="Strings.html">Strings</a></li>
+            <li><a href="Regex.html">Regular Expressions</a></li>
+            <li><a href="Algorithms.html">Common Code</a></li>
+             <!-- Add link to your new page -->
+        </ul>
+    </div>
+    <div id="content">
+        <section id="regex-section">
+            <h2>Regular Expressions</h2>
+            <h3>Introduction</h3>
+            <p>
+                Regular expressions (regex or regexp) are patterns used to match character combinations in strings. They are widely used in text processing and provide a powerful way to search, manipulate, and validate strings.
+            </p>
+            <h3>Wildcards</h3>
+            <p>A wildcard in regex represents any character or set of characters. Here are some common wildcards:</p>
+            <ul>
+    <li><strong>.</strong>: Matches any single character except newline.</li>
+    <li><strong>\d</strong>: Matches any digit (equivalent to [0-9]).</li>
+    <li><strong>\D</strong>: Matches any non-digit character (equivalent to [^0-9]).</li>
+    <li><strong>\w</strong>: Matches any word character (equivalent to [a-zA-Z0-9_]).</li>
+    <li><strong>\W</strong>: Matches any non-word character (equivalent to [^a-zA-Z0-9_]).</li>
+    <li><strong>\s</strong>: Matches any whitespace character (space, tab, newline).</li>
+    <li><strong>\S</strong>: Matches any non-whitespace character.</li>
+    <li><strong>\b</strong>: Matches a word boundary.</li>
+    <li><strong>\B</strong>: Matches a non-word boundary.</li>
+    <li><strong>\t</strong>: Matches a tab character.</li>
+    <li><strong>\n</strong>: Matches a newline character.</li>
+    <li><strong>\r</strong>: Matches a carriage return character.</li>
+    <li><strong>\v</strong>: Matches a vertical tab character.</li>
+    <li><strong>\f</strong>: Matches a form feed character.</li>
+    <li><strong>\0</strong>: Matches a null character.</li>
+    <li><strong>\xHH</strong>: Matches the character with the hex code HH.</li>
+    <li><strong>\uHHHH</strong>: Matches the Unicode character with the hex code HHHH.</li>
+    <li><strong>[abc]</strong>: Matches any single character in the specified set.</li>
+    <li><strong>[^abc]</strong>: Matches any single character not in the specified set.</li>
+    <li><strong>[a-z]</strong>: Matches any single character in the specified range.</li>
+    <li><strong>[^a-z]</strong>: Matches any single character not in the specified range.</li>
+    <li><strong>\Q...\E</strong>: Matches the enclosed characters literally, ignoring regex metacharacters.</li>
+    <li><strong>|</strong>: Alternation, matches either the pattern before or after the pipe.</li>
+    <li><strong>(...)</strong>: Groups multiple tokens together.</li>
+    <li><strong>(?:...)</strong>: Non-capturing group, groups multiple tokens without capturing.</li>
+    <li><strong>(?=...)</strong>: Positive lookahead, asserts that the following pattern matches.</li>
+    <li><strong>(?!...)</strong>: Negative lookahead, asserts that the following pattern does not match.</li>
+    <li><strong>(?<=...)</strong>: Positive lookbehind, asserts that the preceding pattern matches.</li>
+    <li><strong>(?<!...)</strong>: Negative lookbehind, asserts that the preceding pattern does not match.</li>
+    <!-- Add more wildcards as needed -->
+</ul>
+
+            <h3>Common Regex Strings</h3>
+            <p>Here are some common regex patterns:</p>
+           <ul>
+    <li><strong>Email Validation:</strong> ^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$</li>
+    <li><strong>URL Matching:</strong> ^(http|https)://[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,3}(/\S*)?$</li>
+    <li><strong>IP Address:</strong> \b(?:\d{1,3}\.){3}\d{1,3}\b</li>
+    <li><strong>HTML Tags:</strong> <\/?[\w\s="/.':;#-\/\?]+></li>
+    <li><strong>Date (MM/DD/YYYY):</strong> ^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d{2}$</li>
+    <li><strong>Time (HH:MM AM/PM):</strong> ^((1[0-2]|0?[1-9]):([0-5][0-9]) ([AaPp][Mm]))$</li>
+    <li><strong>Hexadecimal Color Code:</strong> ^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$</li>
+    <!-- Add more common regex patterns -->
+</ul>
+
+            <h3>Using Regex in C#</h3>
+            <p>In C#, you can use the <code>System.Text.RegularExpressions</code> namespace to work with regular expressions. Here's a basic example:</p>
+            <pre><code class="language-csharp">
+using System;
+using System.Text.RegularExpressions;
+
+class Program {
+    static void Main() {
+        string input = "Hello, World!";
+        string pattern = "Hello, (.+?)!";
+        Match match = Regex.Match(input, pattern);
+        if (match.Success) {
+            Console.WriteLine("Found match: " + match.Value);
+        } else {
+            Console.WriteLine("No match found.");
+        }
+    }
+}
+</code></pre>
+            <!-- Add more examples and explanations of using regex in C# -->
+        </section>
+    </div>
+</body>
+</html>
