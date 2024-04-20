@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Concepts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        #sidebar {
+            background-color: #fff;
+            width: 250px;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ccc;
+            height: 100vh; /* Full height */
+            overflow-y: auto; /* Scrollable contents if overflow */
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 8px;
+            transition: background-color 0.3s;
+        }
+
+        ul li a:hover {
+            background-color: #eaeaea;
+        }
+
+        section {
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #0077cc;
+        }
+
+        pre {
+            background-color: #eee;
+            border-left: 3px solid #0077cc;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        /* Media query for smaller screens */
+        @media only screen and (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="LinkedList.html">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="#strings-section">Strings</a></li>
+            <li><a href="#algorithm-section">Common Code</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <section id="list-section">
+            <h2>Linked-List</h2>
+            <h3>Overview</h3>
+            <p>
+                In computer science, a linked list is a linear data structure consisting of a sequence
+                of elements, called nodes. Each node contains a data element and a reference (or link) to the next node in the sequence.
+            </p>
+            <p><strong>Singly Linked Lists:</strong> Each node contains a data element and a single reference to the next node in the sequence. The last node points to a null reference.</p>
+            <p><strong>Doubly Linked Lists:</strong> Each node contains references to both the next and previous nodes, allowing bidirectional traversal.</p>
+            <p><strong>Circular Linked Lists:</strong> The last node points back to the first node, forming a circular structure.</p>
+            <h3>Common Methods</h3>
+            <ul>
+                <li>.AddFirst(Value) - Adds a value as the first node.</li>
+                <li>.AddLast(Value) - Adds a value as the last node.</li>
+                <li>.AddAfter(index, Value) - Adds a value after a specified index.</li>
+                <li>.Remove(Value) - Removes a node with the specified value.</li>
+                <li>.Contains(Value) - Checks if the list contains a specific value.</li>
+                <li>.Find(Value) - Finds the first occurrence of a value.</li>
+                <li>.First - Gets the first node.</li>
+                <li>.Last - Gets the last node.</li>
+            </ul>
+            <h3>Implementing a Linked List</h3>
+            <p>Here's how you can code a simple linked list from scratch in C#:</p>
+            <pre><code class="language-csharp">
+using System;
+
+public class Node {
+    public int Value { get; set; }
+    public Node Next { get; internal set; }
+
+    public Node(int value) {
+        Value = value;
+        Next = null;
+    }
+}
+
+public class MyLinkedList {
+    public Node Head;
+
+    public MyLinkedList() {
+        Head = null;
+    }
+
+    // Methods to manipulate the list (Add, Remove) go here...
+
+    public void Reverse() {
+        Node previous = null, current = Head, next = null;
+        while (current != null) {
+            next = current.Next;
+            current.Next = previous;
+            previous = current;
+            current = next;
+        }
+        Head = previous;
+    }
+}
+
+class Program {
+    static void Main() {
+        MyLinkedList list = new MyLinkedList();
+        // Add elements to the list, manipulate and output the list...
+    }
+}</code></pre>
+        </section>
+    </div>
+</body>
+</html>

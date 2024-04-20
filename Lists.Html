@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Concepts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #sidebar {
+            background-color: #f0f0f0;
+            width: 250px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        /* Media query for smaller screens */
+        @media only screen and (max-width: 768px) {
+            #sidebar {
+                width: 100%;
+            }
+
+            #content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="List.html">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="#strings-section">Strings</a></li>
+            <li><a href="#algorithm-section">Common Code</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <section id="list-section">
+            <h2>Lists/Dynamic Array</h2>
+            <div>
+                <h3>Overview</h3>
+                <p>
+                    Lists: In programming, a list is a data structure that stores a collection of elements. Lists are
+                    often used
+                    to store items of the same type, such as numbers, strings, or objects. Unlike arrays, lists can
+                    dynamically
+                    grow or shrink in size as elements are added or removed.<br>
+                    Dynamic Array: A dynamic array is a type of array data structure that automatically resizes itself
+                    to
+                    accommodate a varying number of elements. Unlike static arrays, which have a fixed size determined
+                    at
+                    compile time, dynamic arrays can expand or contract in size dynamically during program
+                    execution.<br>
+                    Now, when we combine "Lists" and "Dynamic Array" together, "Lists/Dynamic Array" likely refers to a
+                    data
+                    structure or programming concept that combines the characteristics of both lists and dynamic arrays.
+                    It
+                    suggests a data structure that behaves like a list, allowing for flexible storage of elements, and
+                    internally may be implemented using a dynamic array to manage its storage efficiently.<br>
+                    In many programming languages, lists or arrays with dynamic resizing capabilities are commonly used
+                    to
+                    implement data structures such as lists, vectors, or ArrayLists, providing the ability to store
+                    collections
+                    of elements that can grow or shrink as needed.<br>
+                    In summary, "Lists/Dynamic Array" likely refers to a data structure or concept that provides dynamic
+                    resizing capabilities similar to a dynamic array while offering list-like functionality for storing
+                    and
+                    manipulating collections of elements.
+                </p>
+            </div>
+            <div>
+                <h3>Methods of a list</h3>
+                <p>These are common methods used with lists:</p>
+                <ul>
+                    <li><code>.Add(item)</code>: Adds an item to the end of the list.</li>
+                    <li><code>.AddRange(collection)</code>: Adds the elements of a collection to the end of the list.
+                    </li>
+                    <li><code>.Remove(item)</code>: Removes the first occurrence of a specific item from the list.</li>
+                    <li><code>.RemoveAt(index)</code>: Removes the item at the specified index from the list.</li>
+                    <li><code>.Contains(item)</code>: Determines whether the list contains a specific item.</li>
+                    <li><code>.Find(predicate)</code>: Finds the first element that matches the conditions defined by
+                        the specified
+                        predicate.</li>
+                    <li><code>.Count</code>: Gets the number of elements contained in the list.</li>
+                    <li><code>.Capacity</code>: Gets or sets the total number of elements the list can hold without
+                        resizing.</li>
+                    <li><code>.Clear()</code>: Removes all elements from the list.</li>
+                    <li><code>.FindIndex(predicate)</code>: Searches for an element that matches the conditions defined
+                        by the
+                        specified predicate and returns the zero-based index of the first occurrence within the entire
+                        list.</li>
+                    <li><code>.ToArray()</code>: Copies the elements of the list to a new array.</li>
+                    <li><code>.Max()</code>: Returns the maximum value in the list.</li>
+                    <li><code>.Min()</code>: Returns the minimum value in the list.</li>
+                    <li><code>.Sum()</code>: Computes the sum of the sequence of numeric values in the list.</li>
+                    <li><code>.Sort()</code>: Sorts the elements in the list.</li>
+                    <li><code>.Reverse()</code>: Reverses the order of the elements in the list.</li>
+                    <li><code>.Insert(index, item)</code>: Inserts an item into the list at the specified index.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>How to implement your Dynamic Array</h3>
+                <p>This is how you can code a Dynamic Array from first principles:</p>
+                <pre>
+                <code class="language-csharp">
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    
+    namespace DataStructures
+    {
+        internal class DynamicArray<T> : IEnumerable<T>
+        {
+            private T[] basearr;
+            private int len;
+            private int size;
+    
+            public DynamicArray(int Arrsize)
+            {
+                if (Arrsize &lt; 0) { throw new ArgumentException("Invalid index"); } else { basearr = new T[Arrsize]; len = 0; size = Arrsize; }
+            }
+    
+            public void append(T item)
+            {
+                if (len + 1 == size) { resize(); }
+                basearr[len++] = item;
+            }
+    
+            // Other methods omitted for brevity...
+    
+            public IEnumerator<T> GetEnumerator()
+            {
+                for (int i = 0; i &lt; len; i++) { yield return basearr[i]; }
+            }
+    
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
+            }
+        }
+    }
+                </code>
+            </pre>
+            </div>
+            <div>
+                <h3>How to use a list</h3>
+                <p>This is how you can make a list, insert and read from it:</p>
+                <pre>
+                <code class="language-csharp">
+    using System;
+    using System.Collections.Generic;
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> list = new List<string>(10);
+            
+            list.Add("1");
+            list.Add("2");
+            list.Add("3");
+            list.Add("4");
+            list.Add("5");
+            list.Add("6");
+            
+            foreach (string item in list) { Console.WriteLine(item); }
+        }
+    }
+                </code>
+            </pre>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

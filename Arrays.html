@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Concepts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #sidebar {
+            background-color: #f0f0f0;
+            width: 250px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        /* Media query for smaller screens */
+        @media only screen and (max-width: 768px) {
+            #sidebar {
+                width: 100%;
+            }
+
+            #content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="#list-section">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="#strings-section">Strings</a></li>
+            <li><a href="#algorithm-section">Common Code</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        
+    <section id="Array-section">
+        <h2>Arrays</h2>
+        <div>
+            <h3>Overview</h3>
+            <p>
+                Arrays: In computer science, an array is a data structure that stores a collection of elements of the same
+                type. Unlike linked lists, which use references to connect nodes, arrays store elements in contiguous
+                memory locations. This allows for direct access to elements using index notation.
+            </p>
+            <p>
+                Arrays have a fixed size determined at the time of declaration, and the size cannot be changed dynamically
+                during program execution. This means that arrays cannot grow or shrink in size once created.
+            </p>
+            <p>
+                Despite their fixed size limitation, arrays offer several advantages, including constant-time access to
+                elements, which makes them suitable for scenarios where frequent random access is required. They are also
+                memory-efficient, as they allocate contiguous memory blocks for elements.
+            </p>
+            <p>
+                However, arrays have limitations when it comes to dynamic resizing and insertion/deletion operations. When
+                elements need to be added or removed frequently, arrays may not be the most efficient choice, as these
+                operations often require shifting elements and reallocating memory.
+            </p>
+            <p>
+                Overall, arrays are a fundamental data structure in computer science, widely used in various applications
+                and algorithms, including sorting algorithms, matrix operations, and representing collections of data.
+            </p>
+        </div>
+        <div>
+            <h3>Methods of an array</h3>
+            <p>These are common methods used with arrays:</p>
+            <ul>
+                <li><code>.Length</code>: Gets the length of the array, which is the total number of elements it can hold.
+                </li>
+                <li><code>.GetValue(index)</code>: Retrieves the value at the specified index in the array.</li>
+                <li><code>.SetValue(value, index)</code>: Sets the value at the specified index in the array.</li>
+                <li><code>.CopyTo(array, index)</code>: Copies the entire array to another array starting at the specified
+                    index.</li>
+                <li><code>.IndexOf(value)</code>: Searches for the specified value in the array and returns the index of
+                    its first occurrence.</li>
+                <li><code>.Reverse()</code>: Reverses the order of the elements in the array.</li>
+                <li><code>.Sort()</code>: Sorts the elements in the array in ascending order.</li>
+                <li><code>.Clear()</code>: Removes all elements from the array.</li>
+            </ul>
+        </div>
+        <div>
+            <h3>How to use Arrays (C#)</h3>
+            <p>
+                You can use arrays in C# to store and manipulate collections of elements. Here's a basic example:
+            </p>
+            <pre>
+                <code class="language-csharp">
+        using System;
+    
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // Declare and initialize an array of integers
+                int[] numbers = { 1, 2, 3, 4, 5 };
+    
+                // Access elements using index notation
+                Console.WriteLine("First element: " + numbers[0]);
+                Console.WriteLine("Second element: " + numbers[1]);
+                Console.WriteLine("Last element: " + numbers[numbers.Length - 1]);
+            }
+        }
+                </code>
+            </pre>
+        </div>
+    </section>
+
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programming Concepts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background: #ffffff;
+            color: #333;
+        }
+
+        #sidebar {
+            background-color: #f9f9f9;
+            width: 250px;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100vh; /* Full height */
+            overflow: auto; /* Enable scrolling if the sidebar is too long */
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+            overflow: auto; /* Enable scrolling */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 8px;
+            transition: background-color 0.3s;
+        }
+
+        ul li a:hover {
+            background-color: #e0e0e0;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            border-left: 3px solid #0056b3;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        code {
+            font-family: monospace;
+        }
+
+        /* Media query for smaller screens */
+        @media only screen and (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            #sidebar {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="Arrays.html">Arrays</a></li>
+            <li><a href="#list-section">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="#strings-section">Strings</a></li>
+            <li><a href="#algorithm-section">Common Algorithms</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <section id="Array-section">
+            <h2>FizzBuzz</h2>
+            <p>
+                For the FizzBuzz problem, you loop to n and if the number is a multiple
+                of 3, print "Fizz". If it's a multiple of 5, print "Buzz". If it's both,
+                print "FizzBuzz". Otherwise, print the number itself.
+            </p>
+            <pre><code class="language-csharp">
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        for (int i = 1; i <= 100; i++)
+        {
+            if (i % 3 == 0 && i % 5 == 0)
+            {
+                Console.WriteLine(i.ToString() + " FizzBuzz");
+            }
+            else if (i % 5 == 0)
+            {
+                Console.WriteLine(i.ToString() + " Buzz");
+            }
+            else if (i % 3 == 0)
+            {
+                Console.WriteLine(i.ToString() + " Fizz");
+            }
+            else
+            {
+                Console.WriteLine(i.ToString());
+            }
+        }
+    }
+}
+            </code></pre>
+
+            <h2>Two Sum</h2>
+            <p>For this problem, find the two indices in an array that add up to a given target.</p>
+            <pre><code class="language-csharp">
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        int[] indices = new int[2];
+        for (int i = 0; i < nums.Length; i++)
+        {
+            for (int j = i + 1; j < nums.Length; j++)
+            {
+                if (nums[i] + nums[j] == target)
+                {
+                    indices[0] = i;
+                    indices[1] = j;
+                    return indices;
+                }
+            }
+        }
+        return indices;
+    }
+}
+            </code></pre>
+
+            </code></pre>
+
+            <h2>Prime numbers</h2>
+            <p>With this solution wwe find out if a number n given is a prim number or not (key use Squre root to decress the run time )</p>
+            <pre><code class="language-csharp">
+
+            </code></pre>
+
+            <h2>Palindrome</h2>
+            <p>we deterime if a word is the same backwards as it is forward</p>
+            <pre><code class="language-csharp">
+using System.Collections.Generic;
+using System.Text;
+
+public class Solution {
+    public bool IsPalindrome(string s) {
+        HashSet<char> specialCharacters = new HashSet<char> {'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', ';', ':', ' ', ',', '.', '<', '>', '\'', '_', '-', '\\', '/', '\"', ']', '}', '{', '[', '?', '`', '~'};
+        
+        StringBuilder filteredString = new StringBuilder();
+        
+     
+        foreach (char c in s)
+        {
+            if (char.IsLetterOrDigit(c) && !specialCharacters.Contains(c))
+            {
+                filteredString.Append(char.ToLower(c)); 
+            }
+        }
+        
+ 
+        int left = 0, right = filteredString.Length - 1;
+        while (left < right)
+        {
+            if (filteredString[left] != filteredString[right])
+            {
+                return false; 
+            }
+            left++;
+            right--;
+        }
+        
+        return true; 
+    }
+}
+
+            </code></pre>
+
+            <h2>Anagram</h2>
+            <p>if all the letters in 2 word are =</p>
+            <pre><code class="language-csharp">
+    public class Solution {
+      public bool IsAnagram(string s, string t) {
+        if (s.Length != t.Length)
+            return false;
+
+        int[] count = new int[26]; 
+        
+        
+        foreach (char c in s)
+            count[c - 'a']++;
+
+        foreach (char c in t) {
+            if (--count[c - 'a'] < 0)
+                return false; 
+        }
+
+        return true; 
+    }
+}
+
+            </code></pre>
+        </section>
+    </div>
+</body>
+
+</html>
