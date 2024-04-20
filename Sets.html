@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Concepts</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="List.html">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="Strings.html">Strings</a></li>
+            <li><a href="Regex.html">Regular Expressions</a></li>
+            <li><a href="Algorithems.html">Common Code</a></li>
+            <li><a href="Dictionaries.html">Dictionaries</a></li>
+            <li><a href="Sets.html">Hash Sets</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <section id="Sets-section">
+            <h2>Hash Sets (aka Sets)</h2>
+            <div>
+                <h3>Overview</h3>
+                <p>
+                    A hash set is a data structure used to store unique elements efficiently. It utilizes a hashing function to map elements to indexes in an array-like structure.
+                </p>
+            </div>
+            <div>
+                <h3>Methods of a Hash Set</h3>
+                <p>Common methods used with hash sets include:</p>
+                <ul>
+                    <li><code>.Add()</code> - Adds the specified element to the hash set.</li>
+                    <li><code>.Contains()</code> - Checks whether the hash set contains a specific element.</li>
+                    <li><code>.Remove()</code> - Removes the specified element from the hash set.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Example Usage (C#)</h3>
+                <pre>
+                    <code class="language-csharp">
+using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main(string[] args) {
+        HashSet<int> numbers = new HashSet<int>();
+        numbers.Add(1);
+        numbers.Add(2);
+        numbers.Add(3);
+        numbers.Add(3); // Adding duplicate, but it won't be stored
+
+        Console.WriteLine("HashSet contains 2? " + numbers.Contains(2)); // Output: True
+        Console.WriteLine("HashSet contains 4? " + numbers.Contains(4)); // Output: False
+    }
+}
+                    </code>
+                </pre>
+            </div>
+
+            <h3>Implementing a Hash Set</h3>
+            <p>Here's how you can implement a hash set from scratch in C#:</p>
+            <pre><code class="language-csharp">
+using System;
+
+public class MyHashSet {
+    private bool[] data = new bool[1000001]; // Assuming a maximum of 1,000,001 elements
+    const int size = 1000001;
+
+    public MyHashSet() {
+    }
+
+    // Hashing function to get index
+    public int GetIndex(string key) {
+        int hash = 0;
+        foreach (char c in key) {
+            hash = (hash * 31 + c) % size;
+        }
+        return hash;
+    }
+
+    // Add method
+    public void Add(string key) {
+        int index = GetIndex(key);
+        data[index] = true;
+    }
+
+    // Remove method
+    public void Remove(string key) {
+        int index = GetIndex(key);
+        data[index] = false;
+    }
+
+    // Contains method
+    public bool Contains(string key) {
+        int index = GetIndex(key);
+        return data[index];
+    }
+}
+
+class Program {
+    static void Main() {
+        MyHashSet set = new MyHashSet();
+        set.Add("apple");
+        set.Add("banana");
+        Console.WriteLine("HashSet contains 'apple'? " + set.Contains("apple")); // Output: True
+        set.Remove("apple");
+        Console.WriteLine("HashSet contains 'apple' after removal? " + set.Contains("apple")); // Output: False
+    }
+}
+</code></pre>
+            </div>
+
+            <h3>Problem and Solution</h3>
+            <p>Problem: Given two arrays, write a function to compute their intersection.</p>
+            <p>Solution: One approach is to use hash sets to store elements from one array, then iterate through the other array and check for intersection. Here's a sample solution in C#: </p>
+            <pre><code class="language-csharp">
+using System;
+using System.Collections.Generic;
+
+class Program {
+    static int[] Intersection(int[] nums1, int[] nums2) {
+        HashSet<int> set = new HashSet<int>();
+        foreach (int num in nums1) {
+            set.Add(num);
+        }
+
+        List<int> intersection = new List<int>();
+        foreach (int num in nums2) {
+            if (set.Contains(num)) {
+                intersection.Add(num);
+                set.Remove(num); // Remove duplicates
+            }
+        }
+
+        return intersection.ToArray();
+    }
+
+    static void Main() {
+        int[] nums1 = { 1, 2, 2, 1 };
+        int[] nums2 = { 2, 2 };
+        int[] result = Intersection(nums1, nums2);
+        Console.WriteLine("Intersection of nums1 and nums2: " + string.Join(", ", result)); // Output: 2
+    }
+}
+</code></pre>
+        </section>
+    </div>
+</body>
+
+</html>
