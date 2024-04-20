@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Concepts</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="Lists.html">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="Strings.html">Strings</a></li>
+            <li><a href="Regex.html">Regular Expressions</a></li>
+            <li><a href="Algorithms.html">Common Code</a></li>
+            <li><a href="Dictionaries.html">Dictionaries</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <section id="Dictionary-section">
+            <h2>Dictionaries</h2>
+            <div>
+                <h3>Overview</h3>
+                <p>
+                    A dictionary is a collection of key-value pairs where each key maps to a specific value. It provides fast lookup based on keys, similar to arrays, but it allows for dynamic resizing like linked lists.
+                </p>
+            </div>
+            <div>
+                <h3>Methods of a Dictionary</h3>
+                <p>Common methods used with dictionaries include:</p>
+                <ul>
+                    <li><code>.Add()</code> - Adds the specified key and value pair to the dictionary.</li>
+                    <li><code>.TryGetValue()</code> - Gets the value associated with the specified key.</li>
+                    <li><code>.ContainsKey()</code> - Determines whether the dictionary contains the specified key.</li>
+                    <li><code>.ContainsValue()</code> - Determines whether the dictionary contains a specific value.</li>
+                    <li><code>.Remove()</code> - Removes the value with the specified key from the dictionary.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Example Usage (C#)</h3>
+                <pre>
+                    <code class="language-csharp">
+using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main(string[] args) {
+        Dictionary<string, int> ageDict = new Dictionary<string, int>();
+        ageDict.Add("John", 30);
+        ageDict.Add("Alice", 25);
+        ageDict.Add("Bob", 35);
+
+        Console.WriteLine("Age of John: " + ageDict["John"]);
+        Console.WriteLine("Does the dictionary contain Alice? " + ageDict.ContainsKey("Alice"));
+    }
+}
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
