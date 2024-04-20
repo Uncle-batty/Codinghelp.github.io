@@ -187,54 +187,184 @@
         <div>
             <h3>Overview</h3>
             <p>
-                
+                Linked Lists: In computer science, a linked list is a linear data structure consisting of a sequence of
+                elements, called
+                nodes, where each node contains a data element and a reference (or link) to the next node in the sequence.
+                Unlike
+                arrays, which store elements in contiguous memory locations, linked lists use pointers or references to
+                connect nodes,
+                allowing for dynamic allocation of memory and efficient insertion and deletion of elements.
+                Linked lists come in various forms, including singly linked lists, doubly linked lists, and circular linked
+                lists, each
+                with different properties and characteristics.
+            </p>
+            <p>
+                <strong>Singly Linked Lists:</strong> In a singly linked list, each node contains a data element and a
+                single reference to the next node
+                in the sequence. The last node typically points to a null reference to signify the end of the list.
+            </p>
+            <p>
+                <strong>Doubly Linked Lists:</strong> In a doubly linked list, each node contains both a data element and
+                references to both the next and
+                previous nodes in the sequence. This allows for traversal in both forward and backward directions.
+            </p>
+            <p>
+                <strong>Circular Linked Lists:</strong> In a circular linked list, the last node points back to the first
+                node, forming a circular
+                structure. This can be useful for certain applications, such as representing a circular buffer or
+                implementing
+                algorithms that require cyclic behavior.
+            </p>
+            <p>
+                Linked lists offer several advantages and disadvantages compared to other data structures such as arrays.
+                They excel at
+                dynamic memory allocation, insertion, and deletion operations, particularly when elements need to be added
+                or removed
+                frequently from the middle of the list. However, they may have higher memory overhead due to the additional
+                storage
+                required for pointers, and accessing elements by index may require linear traversal, resulting in slower
+                performance for
+                random access.
+            </p>
+            <p>
+                Overall, linked lists are a fundamental data structure in computer science, widely used in various
+                applications and
+                algorithms, including memory management, graph traversal, and implementing other data structures like
+                stacks, queues,
+                and hash tables. Understanding linked lists and their properties is essential for any programmer or computer
+                scientist.
             </p>
         </div>
         <div>
-            <h3>Methods of a list</h3>
-            <p>This are all methods of linkedlists that we can use when wworking with them </p>
-            <uL>
-                <li>.Add()</li>
-                <li>.AddRange()</li>
-                <li>.Remove(value)</li>
-                <li>.RemoveAt(index)</li>
-                <li>.Contains(Value)</li>
-                <li>.Find()</li>
-                <li>.Count()</li>
-                <li>.Capacity()</li>
-                <li>.Clear()</li>
-                <li>.FindIndex(value)</li>
-                <li>.ToArray()</li>
-                <li>.Max()</li>
-                <li>.Min()</li>
-                <li>.Sum()</li>
-                <li>.Sort()</li>
-                <li>.Reverse()</li>
-                <li>.insert(index,value)</li>
-    
-            </uL>
+            <h3>Methods of a linked list</h3>
+            <p>These are common methods used with linked lists:</p>
+            <ul>
+                <li>.AddFirst(Value) - Adds a value as the first node in the linked list.</li>
+                <li>.AddLast(Value) - Adds a value as the last node in the linked list.</li>
+                <li>.AddAfter(index, Value) - Adds a value after a specified index in the linked list.</li>
+                <li>.Remove(Value) - Removes a node with the specified value from the linked list.</li>
+                <li>.Contains(Value) - Checks if the linked list contains a specific value.</li>
+                <li>.Find(Value) - Finds the first occurrence of a value in the linked list.</li>
+                <li>.First - Gets the first node in the linked list.</li>
+                <li>.Last - Gets the last node in the linked list.</li>
+            </ul>
         </div>
-    
         <div>
-            <h3>how to implment your linkedlist</h3>
-            <p>This is howw we code a linked list from first principles</p>
-            <code>
-                    static void Main(string[] args)
-                    {
-                    List<string> list = new List<string>(10);
-                    
-                    list.Add("1");
-                    list.Add("2");
-                    list.Add("3");
-                    list.Add("4");
-                    list.Add("5");
-                    list.Add("6");
-                    
-                    foreach (string item in list) { Console.WriteLine(item); }
-                    }
-               </code>
+            <h3>How to implement your linked list (Singular)</h3>
+            <p>This is how you can code a linked list from scratch:</p>
+            <pre>
+                <code class="language-csharp">
+    using System;
+    
+    public class Node
+    {
+        public int Value { get; set; }
+        public Node next { get; internal set; }
+    
+        public Node(int val)
+        {
+            Value = val;
+            next = null;
+        }
+    }
+    
+    public class MyLinkedList
+    {
+        public Node head;
+    
+        public MyLinkedList()
+        {
+            head = null;
+        }
+    
+        // Other methods omitted for brevity...
+    
+        public void ReverseList()
+        {
+            Node current = head;
+            Node previous = null;
+    
+            while (current != null)
+            {
+                Node tempcur = current.next;
+                current.next = previous;
+                previous = current;
+                current = tempcur;
+            }
+            head = previous;
+        }
+    }
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MyLinkedList list = new MyLinkedList();
+            list.AddAtTail(1);
+            list.AddAtTail(2);
+            list.AddAtTail(3);
+    
+            // Display the original list
+            Console.WriteLine("Original List:");
+            Node temp = list.head;
+            while (temp != null)
+            {
+                Console.Write(temp.Value + " ");
+                temp = temp.next;
+            }
+            Console.WriteLine();
+    
+            // Reverse the list
+            list.ReverseList();
+    
+            // Display the reversed list
+            Console.WriteLine("Reversed List:");
+            temp = list.head;
+            while (temp != null)
+            {
+                Console.Write(temp.Value + " ");
+                temp = temp.next;
+            }
+            Console.WriteLine();
+        }
+    }
+                </code>
+            </pre>
+        </div>
+        <div>
+            <h3>How to use Linked Lists (Generic C# Class)</h3>
+            <p>
+                You can use a generic C# class to work with linked lists. Here's a basic example:
+            </p>
+            <pre>
+                <code class="language-csharp">
+    using System;
+    using System.Collections.Generic;
+    
+    public class Example
+    {
+        public static void Main()
+        {
+            // Create a new linked list
+            LinkedList<int> linkedList = new LinkedList<int>();
+    
+            // Add elements to the linked list
+            linkedList.AddLast(1);
+            linkedList.AddLast(2);
+            linkedList.AddLast(3);
+    
+            // Display the elements in the linked list
+            foreach (var item in linkedList)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
+                </code>
+            </pre>
         </div>
     </section>
+
         
     </div>
 </body>
