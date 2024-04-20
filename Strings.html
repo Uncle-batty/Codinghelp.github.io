@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Concepts: Strings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="Lists.html">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="Strings.html">Strings</a></li>
+            <li><a href="Algorithems.html">Common Code</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <section id="strings-section">
+            <h2>Strings</h2>
+            <div>
+                <h3>Overview</h3>
+                <p>
+                    Strings in programming are sequences of characters used to store and manipulate text. They can include letters, numbers, and symbols. In many languages, strings are immutable, meaning once they are created, their contents cannot be changed.
+                </p>
+            </div>
+            <div>
+                <h3>Common String Operations</h3>
+                <p>Some frequently used operations on strings include:</p>
+                <ul>
+                    <li><code>.Length</code> - Returns the length of the string.</li>
+                    <li><code>.Substring(startIndex, length)</code> - Returns a new string that is a substring of the original string, starting from the specified index and extending a specified number of characters.</li>
+                    <li><code>.IndexOf(substring)</code> - Returns the index within the string of the first occurrence of the specified substring.</li>
+                    <li><code>.Replace(oldValue, newValue)</code> - Returns a new string in which all occurrences of a specified string in the current instance are replaced with another specified string.</li>
+                    <li><code>.ToLower()</code> - Returns a copy of the string converted to lowercase.</li>
+                    <li><code>.ToUpper()</code> - Returns a copy of the string converted to uppercase.</li>
+                    <li><code>.Trim()</code> - Removes all leading and trailing white-space characters from the current string.</li>
+                    <li><code>.Split(separator)</code> - Splits the string into substrings based on the characters in the specified separator and returns an array of these substrings.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Example Usage (C#)</h3>
+                <pre>
+                    <code class="language-csharp">
+using System;
+
+class Program {
+    static void Main(string[] args) {
+        string greeting = "Hello, World!";
+        Console.WriteLine("Original string: " + greeting);
+        Console.WriteLine("Lower case: " + greeting.ToLower());
+        Console.WriteLine("Upper case: " + greeting.ToUpper());
+    }
+}
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
