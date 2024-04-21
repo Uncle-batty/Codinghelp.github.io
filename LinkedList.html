@@ -20,6 +20,7 @@
             <li><a href="Sets.html">Hash Sets</a></li>
             <li><a href="Queue.html">Queues</a></li>
             <li><a href="Stack.html">Stacks</a></li>
+            <li><a href="Sorting.html">Sorting</a></li>
         </ul>
     </div>
     <div id="content">
@@ -43,6 +44,8 @@
                 <li>.Find(Value) - Finds the first occurrence of a value.</li>
                 <li>.First - Gets the first node.</li>
                 <li>.Last - Gets the last node.</li>
+                 <li>.prev - Gets the previous node.</li>
+                  <li>.next - Gets the next node.</li>
             </ul>
             <h3>Implementing a Linked List</h3>
             <p>Here's how you can code a simple linked list from scratch in C#:</p>
@@ -85,7 +88,56 @@ class Program {
         MyLinkedList list = new MyLinkedList();
         // Add elements to the list, manipulate and output the list...
     }
-}</code></pre>
+}
+            </code></pre>
+            
+            <h3>Problem: Reorder Linked List(<a href="https://leetcode.com/">Leet code problem 1208</a>)</h3>
+            <p>Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list.</p>
+            <p>The first node is considered odd, and the second node is even, and so on.</p>
+            <h4>Example:</h4>
+            <pre><code class="language-csharp">
+Input: head = [1,2,3,4,5]
+Output: [1,3,5,2,4]
+
+Input: head = [2,1,3,5,6,4,7]
+Output: [2,3,6,7,1,5,4]
+            </code></pre>
+            <h3>Solution</h3>
+            <pre><code class="language-csharp">
+public class Solution {
+    public ListNode OddEvenList(ListNode head) {
+     if (head == null || head.next == null) {
+            return head; 
+        }
+        
+        ListNode oddHead = head; 
+        ListNode evenHead = head.next; 
+        ListNode oddTail = oddHead; 
+        ListNode evenTail = evenHead; 
+        
+        ListNode current = evenHead.next; 
+        bool isOdd = true; 
+        
+        while (current != null) {
+            if (isOdd) {
+                oddTail.next = current; 
+                oddTail = current;
+            } else {
+                evenTail.next = current; 
+                evenTail = current; 
+            }
+            
+            current = current.next; 
+            isOdd = !isOdd; 
+        }
+        
+        oddTail.next = evenHead; 
+        evenTail.next = null;
+        
+        return oddHead; 
+    }
+}
+            </code></pre>
         </section>
     </div>
 </body>

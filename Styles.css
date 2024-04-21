@@ -84,7 +84,8 @@ pre {
     overflow: auto;
 }
 #content {
-    padding-left: 250px;
+    padding-left: 15%;
+    padding-right: 5%;
     /* Adjust according to navbar width */
     padding-top: 20px;
     /* Optional: Add top padding */
