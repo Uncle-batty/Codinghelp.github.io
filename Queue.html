@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queues</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="List.html">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="Strings.html">Strings</a></li>
+            <li><a href="Regex.html">Regular Expressions</a></li>
+            <li><a href="Algorithems.html">Common Code</a></li>
+            <li><a href="Dictionaries.html">Dictionaries</a></li>
+            <li><a href="Sets.html">Hash Sets</a></li>
+            <li><a href="Queue.html">Queues</a></li>
+            <li><a href="Stack.html">Stacks</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <section id="Queues-section">
+            <h2>Queues</h2>
+            <div>
+                <h3>Overview</h3>
+                <p>
+                    A queue is a linear data structure that follows the First In, First Out (FIFO) principle. It has two primary operations: enqueue, which adds an element to the rear of the queue, and dequeue, which removes and returns the front element from the queue.
+                </p>
+            </div>
+            <div>
+                <h3>Methods of a Queue</h3>
+                <p>Common methods used with queues include:</p>
+                <ul>
+                    <li><code>.Enqueue()</code> - Adds an element to the rear of the queue.</li>
+                    <li><code>.Dequeue()</code> - Removes and returns the front element from the queue.</li>
+                    <li><code>.Peek()</code> - Returns the front element from the queue without removing it.</li>
+                    <li><code>.IsEmpty()</code> - Checks whether the queue is empty.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Example Usage (C#)</h3>
+                <pre>
+                    <code class="language-csharp">
+using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main(string[] args) {
+        Queue<int> queue = new Queue<int>();
+        queue.Enqueue(1);
+        queue.Enqueue(2);
+        queue.Enqueue(3);
+
+        Console.WriteLine("Front element of queue: " + queue.Peek()); // Output: 1
+        Console.WriteLine("Dequeueing element from queue: " + queue.Dequeue()); // Output: 1
+    }
+}
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

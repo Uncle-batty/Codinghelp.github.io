@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacks</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="List.html">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="Strings.html">Strings</a></li>
+            <li><a href="Regex.html">Regular Expressions</a></li>
+            <li><a href="Algorithems.html">Common Code</a></li>
+            <li><a href="Dictionaries.html">Dictionaries</a></li>
+            <li><a href="Sets.html">Hash Sets</a></li>
+            <li><a href="Queue.html">Queues</a></li>
+            <li><a href="Stack.html">Stacks</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <section id="Stacks-section">
+            <h2>Stacks</h2>
+            <div>
+                <h3>Overview</h3>
+                <p>
+                    A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. It has two primary operations: push, which adds an element to the top of the stack, and pop, which removes the top element from the stack.
+                </p>
+            </div>
+            <div>
+                <h3>Methods of a Stack</h3>
+                <p>Common methods used with stacks include:</p>
+                <ul>
+                    <li><code>.Push()</code> - Adds an element to the top of the stack.</li>
+                    <li><code>.Pop()</code> - Removes and returns the top element from the stack.</li>
+                    <li><code>.Peek()</code> - Returns the top element from the stack without removing it.</li>
+                    <li><code>.IsEmpty()</code> - Checks whether the stack is empty.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Example Usage (C#)</h3>
+                <pre>
+                    <code class="language-csharp">
+using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main(string[] args) {
+        Stack<int> stack = new Stack<int>();
+        stack.Push(1);
+        stack.Push(2);
+        stack.Push(3);
+
+        Console.WriteLine("Top element of stack: " + stack.Peek()); // Output: 3
+        Console.WriteLine("Popping element from stack: " + stack.Pop()); // Output: 3
+    }
+}
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -20,6 +20,8 @@
             <li><a href="Algorithems.html">Common Code</a></li>
             <li><a href="Dictionaries.html">Dictionaries</a></li>
             <li><a href="Sets.html">Hash Sets</a></li>
+            <li><a href="Queue.html">Queues</a></li>
+            <li><a href="Stack.html">Stacks</a></li>
         </ul>
     </div>
     <div id="content">
@@ -49,7 +51,15 @@
                 <h3>Example Usage (C#)</h3>
                 <pre>
                     <code class="language-csharp">
-<script src="https://gist.github.com/Uncle-batty/39f62db67dff1d470e785847ae4314e1.js"></script>
+using System;
+
+class Program {
+    static void Main(string[] args) {
+        int[] numbers = { 1, 2, 3, 4, 5 };
+        Console.WriteLine("First element: " + numbers[0]);
+        Console.WriteLine("Last element: " + numbers[numbers.Length - 1]);
+    }
+}
                     </code>
                 </pre>
             </div>
