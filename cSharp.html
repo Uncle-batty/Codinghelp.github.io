@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C# Programming Concepts</title>
     <link rel="stylesheet" href="Styles.css">
 </head>
+
 <body>
+    <!-- Nav -->
     <nav id="sidebar">
         <ul>
             <li><a href="cSharp.html">C#</a></li>
@@ -14,8 +17,8 @@
             <li><a href="Arrays.html">Array</a></li>
             <li><a href="List.html">List</a></li>
             <li><a href="LinkedList.html">LinkedList</a></li>
-             <li><a href="Strings.html">Strings</a></li>
-             <li><a href="Regex.html">Regular Expressions</a></li>
+            <li><a href="Strings.html">Strings</a></li>
+            <li><a href="Regex.html">Regular Expressions</a></li>
             <li><a href="Algorithems.html">Common Code</a></li>
             <li><a href="Dictionaries.html">Dictionaries</a></li>
             <li><a href="Sets.html">Hash Sets</a></li>
@@ -28,14 +31,101 @@
     <div id="content">
         <section id="csharp-section" class="csharp-section">
             <h2>C#</h2>
+            <!-- Variables -->
             <div class="csharp-subsection">
                 <h3>Variables</h3>
                 <p>In C#, variables are declared as follows:</p>
                 <pre><code class="language-csharp">// Declare and initialize variables
 &lt;DataType&gt; varName = value;</code></pre>
             </div>
-            <!-- Other subsections go here with similar structure -->
-            
+            <!-- properties-section -->
+            <div id="properties-section" class="csharp-subsection">
+                <h3>Properties</h3>
+                <p>In C#, properties are accessed and modified as follows:</p>
+                <pre><code class="language-csharp">// Access and modify properties
+objectName.PropertyName = value;</code></pre>
+                <p><strong>E.G.</strong></p>
+                <pre><code class="language-csharp">// Set the background color of a form
+form1.BackColor = Color.Red;</code></pre>
+            </div>
+            <!-- Input output -->
+            <div class="csharp-subsection">
+                <h3>Input/Output</h3>
+                <p>Input and output operations in C# involve various classes and methods from the System namespace. For
+                    example:</p>
+                <pre><code class="language-csharp">// Input from console
+string input = Console.ReadLine();
+
+// Output to console
+Console.WriteLine("Output: " + input);</code></pre>
+            </div>
+
+            <!-- Working with variables -->
+            <div class="csharp-section">
+                <h3>Working with variables</h3>
+
+
+                <div id="conversion-subsection" class="csharp-subsection">
+                    <h4>Conversion</h4>
+                    <p>Convert between types using explicit casting or methods:</p>
+                    <pre><code class="language-csharp">int num = 123;
+string numStr = num.ToString();
+int strToInt = int.Parse(numStr);</code></pre>
+                </div>
+
+                <div id="string-manipulation-subsection" class="csharp-subsection">
+                    <h4>String Manipulation</h4>
+                    <p>String manipulation involves methods like:</p>
+                    <pre><code class="language-csharp">string str = "CSharp";
+char firstChar = str[0]; // 'C'
+int index = str.IndexOf('a'); // Index of 'a'
+string subStr = str.Substring(startIndex, length);
+string newStr = str.Replace("C", "D");</code></pre>
+                </div>
+            </div>
+            <!-- conditionals -->
+            <div class="csharp-subsection">
+                <h3>Conditionals</h3>
+                <p>if Statement</p>
+                <pre><code class="language-csharp">if (condition)
+{
+    // Code
+}
+else
+{
+    // Code
+}</code></pre>
+                <p>Switch Statement</p>
+                <pre><code class="language-csharp">switch (variable)
+{
+    case value1:
+        // Statement
+        break;
+    default:
+        // Statement
+        break;
+}</code></pre>
+            </div>
+            <!-- loops -->
+            <div class="csharp-subsection">
+                <h3>Loops</h3>
+                <p>For Loop</p>
+                <pre><code class="language-csharp">for (int i = start; i <= end; i++)
+{
+    // Code
+}</code></pre>
+                <p>While Loop</p>
+                <pre><code class="language-csharp">while (condition)
+{
+    // Code
+}</code></pre>
+                <p>Do-While Loop</p>
+                <pre><code class="language-csharp">do
+{
+    // Code
+} while (condition);</code></pre>
+            </div>
+            <!-- Errors -->
             <div class="csharp-subsection">
                 <h3>Exception Handling</h3>
                 <p>Handling exceptions to ensure robust code:</p>
@@ -52,12 +142,190 @@ finally
     // Code to be executed regardless of exception
 }</code></pre>
             </div>
+            <!-- OOP -->
             <div class="csharp-subsection">
                 <h3>Classes and Object-Oriented Programming (OOP)</h3>
-                <p>Object-Oriented Programming (OOP) is a programming paradigm that uses objects to structure and organize code. In C#, classes are the foundation of OOP, allowing you to define blueprints for objects.</p>
-                <!-- Other subsections within OOP go here -->
+                <p>Object-Oriented Programming (OOP) is a programming paradigm that uses objects to structure and organize code. In
+                    C#, classes are the foundation of OOP, allowing you to define blueprints for objects.</p>
+            
+                <h4>Defining Classes</h4>
+                <p>Creating a class involves defining its properties (attributes) and methods (functions):</p>
+                <pre><code class="language-csharp">class Car
+            {
+                // Properties
+                public string Make { get; set; }
+                public string Model { get; set; }
+            
+                // Methods
+                public void Start()
+                {
+                    Console.WriteLine("Car started.");
+                }
+            
+                public void Drive()
+                {
+                    Console.WriteLine("Car is driving.");
+                }
+            }</code></pre>
+            
+                <h4>Creating Objects</h4>
+                <p>Instantiating objects from a class:</p>
+                <pre><code class="language-csharp">Car myCar = new Car();
+            myCar.Make = "Toyota";
+            myCar.Model = "Camry";</code></pre>
+            
+                <h4>Constructor</h4>
+                <p>Using constructors to initialize object properties:</p>
+                <pre><code class="language-csharp">class Car
+            {
+                public string Make { get; set; }
+                public string Model { get; set; }
+            
+                public Car(string make, string model)
+                {
+                    Make = make;
+                    Model = model;
+                }
+            
+                public void Start()
+                {
+                    Console.WriteLine("Car started.");
+                }
+            }
+            
+            Car myCar = new Car("Toyota", "Camry");</code></pre>
+            
+                <h4>Inheritance</h4>
+                <p>Creating a subclass that inherits from a base class:</p>
+                <pre><code class="language-csharp">class ElectricCar : Car
+            {
+                public int BatteryCapacity { get; set; }
+            
+                public ElectricCar(string make, string model, int batteryCapacity)
+                    : base(make, model)
+                {
+                    BatteryCapacity = batteryCapacity;
+                }
+            }</code></pre>
+            
+                <h4>Polymorphism</h4>
+                <p>Using polymorphism to allow different classes to be treated as instances of a common base class:</p>
+                <pre><code class="language-csharp">class Vehicle
+            {
+                public virtual void Start()
+                {
+                    Console.WriteLine("Vehicle started.");
+                }
+            }
+            
+            class Car : Vehicle
+            {
+                public override void Start()
+                {
+                    Console.WriteLine("Car started.");
+                }
+            }
+            
+            class ElectricCar : Vehicle
+            {
+                public override void Start()
+                {
+                    Console.WriteLine("Electric car started.");
+                }
+            }</code></pre>
+            
+                <h4>Encapsulation</h4>
+                <p>Encapsulating data and behavior within a class:</p>
+                <pre><code class="language-csharp">class BankAccount
+            {
+                private double balance;
+            
+                public void Deposit(double amount)
+                {
+                    balance += amount;
+                }
+            
+                public void Withdraw(double amount)
+                {
+                    if (balance >= amount)
+                    {
+                        balance -= amount;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Insufficient funds.");
+                    }
+                }
+            }</code></pre>
+            </div>
+            <!-- Databases -->
+            <div class="csharp-subsection">
+                <h3>Database Operations</h3>
+                <p>Working with databases is crucial in many applications. C# provides various libraries to interact
+                    with databases, with ADO.NET being a prominent one.</p>
+
+                <h4>Connecting to Database</h4>
+                <p>Example of connecting to a SQL Server database:</p>
+                <pre><code class="language-csharp">using System.Data.SqlClient;
+
+string connectionString = "Data Source=ServerName;Initial Catalog=DatabaseName;User ID=UserName;Password=Password";
+SqlConnection connection = new SqlConnection(connectionString);
+connection.Open();</code></pre>
+
+                <h4>Executing Queries</h4>
+                <p>Executing queries using SqlCommand:</p>
+                <pre><code class="language-csharp">string query = "SELECT * FROM TableName";
+SqlCommand command = new SqlCommand(query, connection);
+SqlDataReader reader = command.ExecuteReader();
+
+while (reader.Read())
+{
+    // Access data using reader
+}</code></pre>
+
+                <h4>Parameterized Queries</h4>
+                <p>Using parameterized queries to prevent SQL injection:</p>
+                <pre><code class="language-csharp">string query = "SELECT * FROM TableName WHERE ID = @ID";
+SqlCommand command = new SqlCommand(query, connection);
+command.Parameters.AddWithValue("@ID", idValue);</code></pre>
+
+                <h4>Working with Entity Framework</h4>
+                <p>Entity Framework simplifies database operations using object-relational mapping (ORM):</p>
+                <pre><code class="language-csharp">using System.Data.Entity;
+
+// Define a data model
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+
+// Access the database using DbContext
+public class AppDbContext : DbContext
+{
+    public DbSet<Product> Products { get; set; }
+}
+
+// Usage
+using (var context = new AppDbContext())
+{
+    var products = context.Products.ToList();
+}</code></pre>
+            </div>
+            <!-- forms -->
+            <div id="forms-section" class="csharp-subsection">
+                <h3>Windows Forms and Web Forms</h3>
+                <p>C# supports both Windows Forms and Web Forms for building user interfaces. Windows Forms are used for
+                    desktop applications, while Web Forms are used for web applications. They provide controls and
+                    components to design interactive user interfaces.
+                In conclusion, C# offers a powerful set of features for soft-
+                ware development, including variables, control structures, loops,
+                and more. These concepts are fundamental across various pro-
+                gramming languages and can be applied to a wide range of
+                development scenarios</p>
             </div>
         </section>
     </div>
 </body>
+
 </html>

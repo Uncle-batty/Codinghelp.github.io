@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Concepts</title>
     <link rel="stylesheet" href="Styles.css">
+
+    <style>
+        .copy-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -51,6 +63,7 @@
             </div>
             <div>
                 <h3>Example Usage (C#)</h3>
+                <div class="code-container">
                 <pre>
                     <code class="language-csharp">
 using System;
@@ -64,9 +77,23 @@ class Program {
 }
                     </code>
                 </pre>
+                <button class="copy-button" onclick="copyCode()">Copy Code</button>
+                </div>
             </div>
         </section>
     </div>
+    <script>
+        function copyCode() {
+            var code = document.querySelector('.code-container code');
+            var range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('Code copied to clipboard!');
+        }
+    </script>
 </body>
 
 </html>
