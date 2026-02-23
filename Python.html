@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming Concepts</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+    <!-- Nav -->
+    <nav id="sidebar">
+        <ul>
+            <li><a href="Python.html">Python</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cSharp.html">C#</a></li>
+            <li><a href="Arrays.html">Array</a></li>
+            <li><a href="List.html">List</a></li>
+            <li><a href="LinkedList.html">LinkedList</a></li>
+            <li><a href="Strings.html">Strings</a></li>
+            <li><a href="Regex.html">Regular Expressions</a></li>
+            <li><a href="Algorithems.html">Common Code</a></li>
+            <li><a href="Dictionaries.html">Dictionaries</a></li>
+            <li><a href="Sets.html">Hash Sets</a></li>
+            <li><a href="Queue.html">Queues</a></li>
+            <li><a href="Stack.html">Stacks</a></li>
+            <li><a href="Sorting.html">Sorting</a></li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <section id="python-section" class="csharp-section">
+
+            <h2>Python</h2>
+            <p>Python is a high-level language that is very easy to learn and is often the first language new programmers start with.</p>
+
+            <!-- Hello World -->
+            <div class="csharp-subsection">
+                <h3>Hello World – Output</h3>
+                <p>Python uses the <strong>print()</strong> function to output to the console.</p>
+                <pre><code class="language-python">print("HELLO WORLD!")</code></pre>
+                <p><code>Output: HELLO WORLD!</code></p>
+            </div>
+
+            <!-- Variables & Input -->
+            <div class="csharp-subsection">
+                <h3>Variables & User Input</h3>
+                <p>Variables in Python are easy to declare because Python infers the type automatically.</p>
+
+                <pre><code class="language-python">isSwitchOn = True       # Boolean
+firstInitial = 'L'      # Character
+surname = "Batty"       # String
+value = 23              # Integer
+cash = 120.55           # Float</code></pre>
+
+                <p>User input is taken using the <strong>input()</strong> function. All input returns a string, so convert types when needed.</p>
+
+                <pre><code class="language-python">name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+
+print("Your name is " + name + " you are " + str(age) + " years old")</code></pre>
+
+                <p><code>Output:<br>Enter your name: Louis<br>Enter your age: 20<br>Your name is Louis you are 20 years old</code></p>
+            </div>
+
+            <!-- Operators -->
+            <div class="csharp-subsection">
+                <h3>Operators</h3>
+                <p>Python supports common arithmetic operators:</p>
+                <pre><code class="language-python">+   # Addition or string concatenation
+-   # Subtraction
+*   # Multiplication
+/   # Division
+%   # Modulus (remainder)
+//  # Floor division
+**  # Exponent</code></pre>
+
+                <p>Examples:</p>
+                <pre><code class="language-python">2 + 2      # 4
+10 - 20    # -10
+3 * 10     # 30
+25 / 5     # 5.0
+10 % 3     # 1
+11 // 2    # 5
+2 ** 3     # 8</code></pre>
+            </div>
+
+            <!-- Conditionals -->
+            <div class="csharp-subsection">
+                <h3>Conditionals</h3>
+                <pre><code class="language-python">if condition:
+    # Code
+elif other_condition:
+    # Code
+else:
+    # Code</code></pre>
+
+                <p>Example:</p>
+                <pre><code class="language-python">age = 18
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")</code></pre>
+            </div>
+
+            <!-- Loops -->
+            <div class="csharp-subsection">
+                <h3>Loops</h3>
+                <p>For Loop:</p>
+                <pre><code class="language-python">for i in range(0, 5):
+    print(i)</code></pre>
+
+                <p>While Loop:</p>
+                <pre><code class="language-python">count = 0
+while count < 5:
+    print(count)
+    count += 1</code></pre>
+            </div>
+
+            <!-- Working with Strings -->
+            <div class="csharp-subsection">
+                <h3>Working With Strings</h3>
+                <pre><code class="language-python">text = "Python"
+first = text[0]
+length = len(text)
+index = text.find("t")
+substring = text[1:4]
+newText = text.replace("Py", "My")</code></pre>
+            </div>
+
+            <!-- Lists -->
+            <div class="csharp-subsection">
+                <h3>Lists</h3>
+                <pre><code class="language-python">numbers = [1, 2, 3, 4]
+
+numbers.append(5)
+numbers.remove(2)
+length = len(numbers)</code></pre>
+            </div>
+
+            <!-- Dictionaries -->
+            <div class="csharp-subsection">
+                <h3>Dictionaries</h3>
+                <pre><code class="language-python">person = {
+    "name": "Louis",
+    "age": 20
+}
+
+print(person["name"])
+person["age"] = 21</code></pre>
+            </div>
+
+            <!-- Functions -->
+            <div class="csharp-subsection">
+                <h3>Functions</h3>
+                <pre><code class="language-python">def greet(name):
+    print("Hello " + name)
+
+greet("Louis")</code></pre>
+            </div>
+
+            <!-- Exception Handling -->
+            <div class="csharp-subsection">
+                <h3>Exception Handling</h3>
+                <pre><code class="language-python">try:
+    number = int("ABC")
+except ValueError:
+    print("Invalid number")
+finally:
+    print("Done")</code></pre>
+            </div>
+
+            <!-- Classes & OOP -->
+            <div class="csharp-subsection">
+                <h3>Classes & Object-Oriented Programming</h3>
+
+                <h4>Defining Classes</h4>
+                <pre><code class="language-python">class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def start(self):
+        print("Car started.")</code></pre>
+
+                <h4>Creating Objects</h4>
+                <pre><code class="language-python">myCar = Car("Toyota", "Camry")
+myCar.start()</code></pre>
+
+                <h4>Inheritance</h4>
+                <pre><code class="language-python">class ElectricCar(Car):
+    def __init__(self, make, model, battery):
+        super().__init__(make, model)
+        self.battery = battery</code></pre>
+
+                <h4>Polymorphism</h4>
+                <pre><code class="language-python">class Animal:
+    def speak(self):
+        print("Animal sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Bark")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow")</code></pre>
+            </div>
+
+            <!-- File Handling -->
+            <div class="csharp-subsection">
+                <h3>File Handling</h3>
+                <pre><code class="language-python"># Write to file
+with open("file.txt", "w") as file:
+    file.write("Hello World")
+
+# Read from file
+with open("file.txt", "r") as file:
+    print(file.read())</code></pre>
+            </div>
+
+            <!-- Modules -->
+            <div class="csharp-subsection">
+                <h3>Modules</h3>
+                <pre><code class="language-python">import math
+
+print(math.sqrt(25))</code></pre>
+            </div>
+
+        </section>
+    </div>
+</body>
+</html>
